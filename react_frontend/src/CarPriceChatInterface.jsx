@@ -30,7 +30,7 @@ export default function CarPriceChatInterface() {
     setIsLoading(true);
 
     try {
-      const parseRes = await fetch("http://127.0.0.1:5000/api/parse", {
+      const parseRes = await fetch("https://car-price-backend-j8el.onrender.com/api/parse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
@@ -45,7 +45,7 @@ export default function CarPriceChatInterface() {
 
       addMessage({ role: "assistant", type: "extracted", content: extracted });
 
-      const predictRes = await fetch("http://127.0.0.1:5000/api/predict", {
+      const predictRes = await fetch("https://car-price-backend-j8el.onrender.com/api/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(extracted),
